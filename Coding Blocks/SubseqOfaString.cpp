@@ -3,7 +3,9 @@ using namespace std;
 void find_subseq(string st,string s,int i,int n)
 {
     if(i==n)
+    {s+='\0';
     cout<<s<<" ";
+  }
     else
     {
         find_subseq(st,s+st[i],i+1,n);
