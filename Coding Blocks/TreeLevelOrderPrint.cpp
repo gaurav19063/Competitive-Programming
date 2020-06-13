@@ -49,23 +49,32 @@ void printTreeAtKthLevel(node * root,int k)
 {
      if(root)
 {
-    if(findHeight(root)==k)
+    if(k==1)
     { cout<<root->data<<" ";
 
     }
-    printTreeAtKthLevel(root->left,k);
-    printTreeAtKthLevel(root->right,k);
+    printTreeAtKthLevel(root->left,k-1);
+    printTreeAtKthLevel(root->right,k-1);
 
 }
 }
 void printTreeAllLevel(node* root)
 {
- int heignt=findHeight(root);
- for(int i=heignt;i>0;i--)
+ int height=findHeight(root);
+ for(int i=1;i<=height;i++)
  {
      printTreeAtKthLevel(root,i);
      cout<<endl;
  }
+}
+void printTreeIn(node* root)
+{
+    if(root)
+    {
+        printTreeIn(root->left);
+        cout<<root->data<<" ";
+        printTreeIn(root->right);
+    }
 }
 int main() {
 node* root=buildtree();
@@ -74,11 +83,14 @@ cout<<endl;
 
 printtree(root);
 cout<<endl;
+printTreeIn(root);
+cout<<endl;
 
 printTreeAtKthLevel(root,2);
 cout<<endl<<endl;
 
 printTreeAllLevel(root);
 cout<<endl;
+// findHeight()
 
 }
