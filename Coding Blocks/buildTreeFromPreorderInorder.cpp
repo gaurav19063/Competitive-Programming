@@ -25,7 +25,7 @@ void printTreePostOrder(node * root)
 
     }
 }
-node* buildtreewithPreIn(int a[1000],int b[1000],int s,int e,int n)
+node* buildtreewithPreIn(int a[1000],int b[1000],int s,int e)
 {
 // cout<<s<<" "<<e<<endl;
 if(s<=e)
@@ -38,8 +38,8 @@ if(a[0]==b[i])
     break;
 }
 // cout<<index<<endl;
-node* leftsub=buildtreewithPreIn(a+1,b,s,index-1,n);
-node * rightsub=buildtreewithPreIn(a+(index-s)+1,b,index+1,e,n);
+node* leftsub=buildtreewithPreIn(a+1,b,s,index-1);
+node * rightsub=buildtreewithPreIn(a+(index-s)+1,b,index+1,e);
 node* nd=new node(b[index]);
 nd->left=leftsub;
 nd->right=rightsub;
@@ -59,7 +59,7 @@ int main() {
     cout<<"Enter Nodes in Inorder"<<endl;
     for(int i=0;i<n;i++)
     cin>>b[i];
-    node * root=buildtreewithPreIn(a,b,0,n-1,n-1);
+    node * root=buildtreewithPreIn(a,b,0,n-1);
     cout<<endl;
     printTreePostOrder(root);
 }
