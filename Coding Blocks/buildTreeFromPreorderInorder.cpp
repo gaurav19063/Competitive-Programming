@@ -27,8 +27,8 @@ void printTreePostOrder(node * root)
 }
 node* buildtreewithPreIn(int a[1000],int b[1000],int s,int e,int n)
 {
-cout<<s<<" "<<e<<endl;
-if(s<=e&&s>=0&&e<=n)
+// cout<<s<<" "<<e<<endl;
+if(s<=e)
 {
    int i=s;
    int index=0;
