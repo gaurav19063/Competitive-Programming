@@ -12,7 +12,12 @@ class Employee:promotion{
     int sal;
     int age;
     public:
-
+Employee()
+{
+    sal=0;
+    age=0;
+    name="";
+}
     Employee(string name,int sal,int age)
     {
         this->sal=sal;
@@ -37,7 +42,24 @@ class Employee:promotion{
     {
         cout<<name<<" Reads Emails and Responds to those."<<endl;
     }
+    int getsal()
+    {
+        return sal;
+    }
+    // operator Overloading
+    Employee operator+(Employee const &e1)
+    {
+        Employee e;
+        e.sal=(e1.sal+sal)/2;
+        return e;
+        
+    }
+    friend int getAge(Employee &ep);
 };
+int getAge(Employee &ep)
+{
+    return ep.age;
+}
 class Developer: public Employee{
     private:
     string plang;
@@ -98,6 +120,10 @@ Driver dr1={"Lakshman",10000,35,"Swift"};
 Employee *e5=& dr1;
 e5->work();
 
-
+Employee e6={"vijay",1000,25};
+Employee e7={"Sarthak",10000,30};
+Employee e8=e6+e7;
+cout<<e8.getsal()<<endl;
+cout<<getAge(e1)<<endl;
 
 }
